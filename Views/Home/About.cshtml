@@ -1,10 +1,16 @@
 ﻿@{
     ViewBag.Title = "About";
-    bool authenticated = User.Identity?.IsAuthenticated ?? false;
+    ViewBag.Message = "Example User Details:";
 }
 <h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<h4>@ViewBag.Message</h4>
 
-<p>Use this area to provide additional information.</p>
-
-@(User.Identity?.Name ?? "Undefined") Is @(authenticated ? "" : "Not") Authenticated
+<p>
+    @this.UserID() Is @(this.UserIsAuthenticated() ? "" : "Not") Authenticated
+    <br />
+    <br />
+    Is Admin: @this.UserIsAdmin()
+    <br />
+    Is Admin or Editor: @this.UserIsAdminOrEditor()
+    <br />
+</p>

@@ -1,52 +1,4 @@
-﻿@using System.Threading
-@using GSF.Identity
-@using GSF.Security
-@using GSF.Web
-@using GSF.Web.Security
-@using GSF.Web.Shared
-@{
-    ReadonlyAuthenticationOptions options = Startup.AuthenticationOptions;
-    ViewBag.AuthenticationOptions = options;
-    string loginPage = AuthenticationOptions.DefaultLoginPage;
-
-    if (!(options is null)) {
-        if (!string.IsNullOrWhiteSpace(options.LoginPage)) {
-            loginPage = options.LoginPage;
-        }
-    }
-
-    ViewBag.IsAdmin = UserIsAdmin();
-    ViewBag.IsAdminOrEditor = UserIsAdminOrEditor();
-}
-@functions {
-    public string GetCurrentUserID()
-    {
-        if (Thread.CurrentPrincipal.Identity == null)
-            return UserInfo.CurrentUserID;
-
-        return Thread.CurrentPrincipal.Identity.Name;
-    }
-
-    public bool UserIsAdmin()
-    {
-        SecurityPrincipal securityPrincipal = ViewBag.SecurityPrincipal as SecurityPrincipal;
-
-        if (securityPrincipal is null)
-            return false;
-
-        return securityPrincipal.IsInRole("Administrator");
-    }
-
-    public bool UserIsAdminOrEditor()
-    {
-        SecurityPrincipal securityPrincipal = ViewBag.SecurityPrincipal as SecurityPrincipal;
-
-        if (securityPrincipal is null)
-            return false;
-
-        return securityPrincipal.IsInRole("Administrator,Editor");
-    }
-}
+﻿@using GSF.Web.Shared
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,6 +7,7 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Html.Raw(Resources.HeaderIcons)
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -74,7 +27,7 @@
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
                 <div class="nav navbar-text navbar-right" style="margin-top: 10px; margin-bottom: 5px">
-                    <button id="logoutButton" type="button" class="btn btn-sm btn-info" style="display: none" title="Log out @GetCurrentUserID()" hub-dependent>Log Out</button>
+                    <button id="logoutButton" type="button" class="btn btn-sm btn-info" style="display: none" title="Log out @this.UserID()" hub-dependent>Log Out</button>
                     <a href="https://www.gridprotectionalliance.org/" target="_blank" style="padding-left: 10px">
                         <img alt="Grid Protection Alliance" src="@Resources.Root/Shared/Images/gpa-smalllock.png">
                     </a>
@@ -95,7 +48,7 @@
     @RenderSection("scripts", required: false)
     <script>
         $("#logoutButton").click(function () { 
-            window.location = "@loginPage.JavaScriptEncode()?logout";
+            window.location = "/Logout";
         });
 
         $("#logoutButton").show();
