@@ -27,9 +27,9 @@
     Layout = null;
     ReadonlyAuthenticationOptions options = Startup.AuthenticationOptions;
     ViewBag.AuthenticationOptions = options;
-    string loginPage = options.LoginPage;
+    string loginPage = AuthenticationOptions.DefaultLoginPage;
 
-    if ((object)options != null) {
+    if (!(options is null)) {
         if (!string.IsNullOrWhiteSpace(options.LoginPage)) {
             loginPage = options.LoginPage;
         }

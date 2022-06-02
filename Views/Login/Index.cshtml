@@ -1,8 +1,6 @@
 ﻿@using GSF.Web
-@using GSF.Web.Security
 @{
     Layout = null;
-    ReadonlyAuthenticationOptions options = Startup.AuthenticationOptions;
-    ViewBag.AuthenticationOptions = options;
+    ViewBag.AuthenticationOptions = Startup.AuthenticationOptions;
 }
 @Html.RenderResource("GSF.Web.Security.Views.Login.cshtml")
