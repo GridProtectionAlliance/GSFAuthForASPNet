@@ -31,7 +31,7 @@ namespace AuthTest
                 ConfigurationFile config = ConfigurationFile.Current;
                 CategorizedSettingsElementCollection settings = config.Settings["SecurityProvider"];
                 settings.Add("ApplicationName", applicationName, "Name of the application being secured as defined in the backend security data store.");
-                applicationName= settings["ApplicationName"].ValueAs(applicationName);
+                applicationName = settings["ApplicationName"].ValueAs(applicationName);
             }
             catch (Exception)
             {
