@@ -30,7 +30,7 @@ namespace AuthTest
                 // Load application name from the Web.config file
                 ConfigurationFile config = ConfigurationFile.Current;
                 CategorizedSettingsElementCollection settings = config.Settings["SecurityProvider"];
-                settings.Add("ApplicationName", "", "Name of the application being secured as defined in the backend security data store.");
+                settings.Add("ApplicationName", applicationName, "Name of the application being secured as defined in the backend security data store.");
                 applicationName= settings["ApplicationName"].ValueAs(applicationName);
             }
             catch (Exception)
