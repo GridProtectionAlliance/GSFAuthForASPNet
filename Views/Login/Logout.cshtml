@@ -27,12 +27,9 @@
     Layout = null;
     ReadonlyAuthenticationOptions options = Startup.AuthenticationOptions;
     ViewBag.AuthenticationOptions = options;
-    string sessionToken = SessionHandler.DefaultSessionToken;
     string loginPage = options.LoginPage;
 
     if ((object)options != null) {
-        sessionToken = options.SessionToken;
-
         if (!string.IsNullOrWhiteSpace(options.LoginPage)) {
             loginPage = options.LoginPage;
         }
