@@ -2,9 +2,9 @@
 using System.Reflection;
 using Microsoft.Owin;
 using Owin;
-using GSF.Configuration;
 using GSF.Web.Shared;
 using GSF.Web.Security;
+using static AuthTest.Common;
 
 [assembly: OwinStartup(typeof(AuthTest.Startup))]
 
@@ -21,28 +21,11 @@ namespace AuthTest
 
         static Startup()
         {
-            const string DefaultApplicationName = "GSF Authentication";
-
-            string applicationName = DefaultApplicationName;
-
-            try
-            {
-                // Attempt to load application name from the Web.config file
-                ConfigurationFile config = ConfigurationFile.Current;
-                CategorizedSettingsElementCollection settings = config.Settings["SecurityProvider"];
-                settings.Add("ApplicationName", applicationName, "Name of the application being secured as defined in the backend security data store.");
-                applicationName = settings["ApplicationName"].ValueAs(applicationName);
-            }
-            catch (Exception)
-            {
-                applicationName = DefaultApplicationName;
-            }
-            
             s_authenticationOptions = new AuthenticationOptions
             {
                 LoginPage = "/Login",
-                LoginHeader = $"<h3><img src=\"{Resources.Root}/Shared/Images/gpa-smalllock.png\"/> {applicationName}</h3>",
-                AnonymousResourceExpression = "^/Login/|^/@|^/Scripts/|^/Content/|^/Images/|^/fonts/|^/api/Feedback/|^/favicon.ico$"
+                LoginHeader = $"<h3><img src=\"{Resources.Root}/Shared/Images/gpa-smalllock.png\"/> {ApplicationName}</h3>",
+                AnonymousResourceExpression = AnonymousResourceExpression
             };
 
             AuthenticationOptions = CreateInstance<ReadonlyAuthenticationOptions>(s_authenticationOptions);
