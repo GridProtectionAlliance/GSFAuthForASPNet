@@ -25,7 +25,8 @@ namespace AuthTest
             {
                 LoginPage = "/Login",
                 LoginHeader = $"<h3><img src=\"{Resources.Root}/Shared/Images/gpa-smalllock.png\"/> {ApplicationName}</h3>",
-                AnonymousResourceExpression = AnonymousResourceExpression
+                AnonymousResourceExpression = AnonymousResourceExpression,
+                AuthFailureRedirectResourceExpression = @"^/$|^/.+$"
             };
 
             AuthenticationOptions = CreateInstance<ReadonlyAuthenticationOptions>(s_authenticationOptions);
