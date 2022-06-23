@@ -122,7 +122,7 @@
     <script src="@Resources.Root/Shared/Scripts/gsf.web.client.js"></script>
     <script>
         $(function () {
-            setTimeout(() => window.location = "@loginPage.JavaScriptEncode()?logout", 1000);
+            setTimeout(() => window.location = "@loginPage.JavaScriptEncode()?logout&sessionCleared=true", 1000);
         });
     </script>
 </body>
