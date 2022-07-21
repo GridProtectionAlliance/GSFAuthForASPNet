@@ -46,29 +46,35 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxMin, Version=5.14.5506.26196, Culture=neutral, PublicKeyToken=21ef50ce11b5d80f, processorArchitecture=MSIL">
+      <HintPath>packages\AjaxMin.5.14.5506.26202\lib\net40\AjaxMin.dll</HintPath>
+      <Private>True</Private>
+      <Aliases>global</Aliases>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="ExpressionEvaluator, Version=2.0.4.0, Culture=neutral, PublicKeyToken=90d9f15d622e2348, processorArchitecture=MSIL">
       <HintPath>packages\ExpressionEvaluator.2.0.4.0\lib\net40\ExpressionEvaluator.dll</HintPath>
     </Reference>
-    <Reference Include="GSF.Communication, Version=2.4.37.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\GSF.Communication.2.4.37-beta\lib\net46\GSF.Communication.dll</HintPath>
+    <Reference Include="GSF.Communication, Version=2.4.48.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\GSF.Communication.2.4.48-beta\lib\net46\GSF.Communication.dll</HintPath>
     </Reference>
-    <Reference Include="GSF.Core, Version=2.4.37.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\GSF.Core.2.4.37-beta\lib\net46\GSF.Core.dll</HintPath>
+    <Reference Include="GSF.Core, Version=2.4.48.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\GSF.Core.2.4.48-beta\lib\net46\GSF.Core.dll</HintPath>
     </Reference>
-    <Reference Include="GSF.Security, Version=2.4.37.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\GSF.Security.2.4.37-beta\lib\net46\GSF.Security.dll</HintPath>
+    <Reference Include="GSF.Security, Version=2.4.48.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\GSF.Security.2.4.48-beta\lib\net46\GSF.Security.dll</HintPath>
     </Reference>
-    <Reference Include="GSF.ServiceModel, Version=2.4.37.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\GSF.ServiceModel.2.4.37-beta\lib\net46\GSF.ServiceModel.dll</HintPath>
+    <Reference Include="GSF.ServiceModel, Version=2.4.48.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\GSF.ServiceModel.2.4.48-beta\lib\net46\GSF.ServiceModel.dll</HintPath>
     </Reference>
-    <Reference Include="GSF.ServiceProcess, Version=2.4.37.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\GSF.ServiceProcess.2.4.37-beta\lib\net46\GSF.ServiceProcess.dll</HintPath>
+    <Reference Include="GSF.ServiceProcess, Version=2.4.48.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\GSF.ServiceProcess.2.4.48-beta\lib\net46\GSF.ServiceProcess.dll</HintPath>
     </Reference>
-    <Reference Include="GSF.TimeSeries, Version=2.4.37.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\GSF.TimeSeries.2.4.37-beta\lib\net46\GSF.TimeSeries.dll</HintPath>
+    <Reference Include="GSF.TimeSeries, Version=2.4.48.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\GSF.TimeSeries.2.4.48-beta\lib\net46\GSF.TimeSeries.dll</HintPath>
     </Reference>
-    <Reference Include="GSF.Web, Version=2.4.37.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\GSF.Web.2.4.37-beta\lib\net46\GSF.Web.dll</HintPath>
+    <Reference Include="GSF.Web, Version=2.4.48.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\GSF.Web.2.4.48-beta\lib\net46\GSF.Web.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.AspNet.SignalR.Core.2.4.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
@@ -210,6 +216,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <EmbeddedResource Include="AjaxMin.dll" />
+    <Content Include="Readme.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="README.md" />
@@ -225,6 +233,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Shared\Content\Readme.txt" />
+    <Content Include="Shared\Readme.txt" />
+    <Content Include="Shared\Scripts\flot\LICENSE.txt" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

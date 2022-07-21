@@ -17,6 +17,14 @@ Should only need NuGet reference to [`GSF.Web`](https://www.nuget.org/packages/G
 
 ## Deployment Notes
 
+### >> Make sure `Microsoft.Owin.Host.SystemWeb` Package is Referenced
+
+The `Microsoft.Owin.Host.SystemWeb` package must be referenced from MVC project to ensure Owin starts up correctly.
+If the reference is missing, try this from NuGet console:
+```
+update-package Microsoft.Owin.Host.SystemWeb -reinstall
+```
+
 ### >> Conflict with `AjaxMin.dll'
 
 To get past the following issue with `AjaxMin.dll`:
