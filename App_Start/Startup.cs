@@ -107,6 +107,7 @@ namespace AuthTest
 
                 // Add assembly to the cache
                 s_assemblyCache.Add(shortName, resourceAssembly);
+                break;
             }
 
             return resourceAssembly;
