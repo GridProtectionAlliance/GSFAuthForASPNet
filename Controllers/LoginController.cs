@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 
 namespace AuthTest.Controllers
 {
@@ -7,6 +8,9 @@ namespace AuthTest.Controllers
         [AllowAnonymous]
         public ActionResult Index()
         {
+            if (!Startup.OwinLoaded)
+                throw new InvalidOperationException("Owin pipeline not loaded. Try running 'update-package Microsoft.Owin.Host.SystemWeb -reinstall' from NuGet Package Manager Console.");
+
             return View();
         }
 

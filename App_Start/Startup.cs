@@ -23,6 +23,8 @@ namespace AuthTest
         {
             // Enable GSF role-based security authentication
             app.UseAuthentication(s_authenticationOptions);
+
+            OwinLoaded = true;
         }
         
         private static readonly AuthenticationOptions s_authenticationOptions;
@@ -49,6 +51,8 @@ namespace AuthTest
 
             AuthenticationOptions = CreateInstance<ReadonlyAuthenticationOptions>(s_authenticationOptions);
         }
+
+        public static bool OwinLoaded { get; private set; }
 
         public static ReadonlyAuthenticationOptions AuthenticationOptions { get; }
         
