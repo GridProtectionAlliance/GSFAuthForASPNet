@@ -25,14 +25,6 @@ If the reference is missing, try this from NuGet console:
 update-package Microsoft.Owin.Host.SystemWeb -reinstall
 ```
 
-### >> Conflict with `AjaxMin.dll'
-
-To get past the following issue with `AjaxMin.dll`:
-
-error: (252, 18) The type 'Microsoft.Ajax.Utilities.Minifier' exists in both 'c:\\Users\\user\\AppData\\Local\\Temp\\Temporary ASP.NET Files\\vs\\3fcb85ea\\e51caa15\\assembly\\dl3\\5717bf02\\00697cc7_313bd001\\AjaxMin.DLL' and 'c:\\Users\\user\\AppData\\Local\\Temp\\Temporary ASP.NET Files\\vs\\3fcb85ea\\e51caa15\\assembly\\dl3\\f395d8c6\\001bc110_4318cf01\\WebGrease.DLL'
-
-Set the `WebGrease` reference in the project to `Copy Local` = `False` in reference properties. Note that you might need to "clean" project and rebuild for this to take effect.
-
 ### >> Force Login Screen to Display
 
 In order for IIS hosted screens to properly go to Login screen first, validate the following:
